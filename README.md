@@ -11,9 +11,8 @@ These two parameters, passed in as environment variables, are used to generate `
 A typical execution might be: `docker run -t -i -h $(hostname) -e DEPLOYMENTSERVER=splunk.example.com:8089 -e CLIENTNAME=$(hostname) -v /tmp/splunk:/opt/splunk splunk`
 
 The resulting conf (if the hostname was forwardall) would look like:
-  [target-broker:deploymentServer]
-  targetUri = splunk.example.com:8089
-  
-  [deployment-client]
-  clientName = forwardall
 
+    [target-broker:deploymentServer]
+    targetUri = splunk.example.com:8089
+    [deployment-client]
+    clientName = forwardall
