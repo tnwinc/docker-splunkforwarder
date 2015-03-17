@@ -17,5 +17,9 @@ fi;
 
 printf "[target-broker:deploymentServer]\ntargetUri = $DEPLOYMENTSERVER\n" > $SPLUNK_HOME/etc/system/local/deploymentclient.conf
 
+#optional client name
+if [ -n "$CLIENTNAME" ]; then
+	printf "\n[deployment-client]\nclientName = $CLIENTNAME\n" >> $SPLUNK_HOME/etc/system/local/deploymentclient.conf
+fi;
 #start splunk
 /opt/splunk/bin/splunk start --nodaemon --accept-license --no-prompt --answer-yes
