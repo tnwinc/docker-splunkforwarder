@@ -19,3 +19,5 @@ printf "[target-broker:deploymentServer]\ntargetUri = $DEPLOYMENTSERVER\n" > $SP
 
 #start splunk
 /opt/splunk/bin/splunk start --nodaemon --accept-license --no-prompt --answer-yes
+
+if [[ $? != 0 ]] || test -t 0; then exit $?; fi
