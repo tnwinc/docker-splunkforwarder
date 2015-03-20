@@ -1,3 +1,5 @@
 #!/bin/bash
 sudo docker build -t splunk .
-sudo docker run -t -i -h `hostname` -e DEPLOYMENTSERVER=N1-LAB-REL-001:8089 -e CLIENTNAME=`hostname` -v /tmp/splunk:/opt/splunk splunk /bin/bash
+sudo docker kill splunk
+sudo docker rm splunk
+sudo docker run -t -i -h `hostname` -e DEPLOYMENTSERVER=N1-LAB-REL-001:8089 -e CLIENTNAME=`hostname` -v /tmp/splunk:/opt/splunk --name splunk splunk /bin/bash
